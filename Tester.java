@@ -46,26 +46,23 @@ public class Tester
         //loop through each stack if not empty.
         while (!firstNum.isEmpty() || !secondNum.isEmpty()) {
 
-            for (int i = 0; i < len1; ++i) {
+            //calcuate the result by adding number from frist and second stack.
+            result = getNum(firstNum) + getNum(secondNum);
 
-                //calcuate the result by adding number from frist and second stack.
-                result = getNum(firstNum) + getNum(secondNum);
-
-                //add carryover if value exists and clears value.
-                if(carryOver != 0) {
-                     result += carryOver;
-                     carryOver = 0;
-                }
-
-                //calculates the carry over and result.
-                if (result >= 10) {
-                    carryOver = result / 10;
-                    result = result % 10;
-                }
-
-                //push result to stack.
-                resultNum.push(result);
+            //add carryover if value exists and clears value.
+            if(carryOver != 0) {
+                result += carryOver;
+                carryOver = 0;
             }
+
+            //calculates the carry over and result.
+            if (result >= 10) {
+                carryOver = result / 10;
+                result = result % 10;
+            }
+
+            //push result to stack.
+            resultNum.push(result);
         }
 
         //formated outup.
